@@ -1,0 +1,41 @@
+.task {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border: 1px solid black;
+  min-width: 400px;
+  min-height: 300px;
+}
+
+.task__item .item__h1, .task__item .item__h2, .task__item .item__h3 {
+  color: brown;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.task__item .item__h1 {
+  font-size: 28px;
+  line-height: 3em;
+}
+
+.task__item .item__h2 {
+  font-size: 24px;
+  line-height: 1.5em;
+}
+
+.task__item .item__h3 {
+  font-size: 18px;
+  line-height: 1.5em;
+}
+
+.task__button {
+  max-width: 550px;
+  height: 50px;
+  font-size: 20px;
+  height: 40px;
+  margin-top: 50px;
+}
+/*# sourceMappingURL=style.css.map */
