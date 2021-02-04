@@ -76,3 +76,24 @@ function task3() {
 
 
 }
+
+function task4() {
+
+    var arr = '';
+
+    function printer(a) {
+        
+        arr = '';
+        for (var j = 1; j <= a; j++) {
+            arr += '*';
+        }
+        console.log(arr);
+    }
+
+
+    for (var i=1; i<=25; i++) {
+        printer(i);
+    }
+
+
+}
