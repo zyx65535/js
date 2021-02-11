@@ -10,21 +10,80 @@
     <link rel="stylesheet" href="./style/css/reset.css">
     <link rel="stylesheet" href="style/css/style.css">
 </head>
+
+<style>
+.box { 
+    text-align: center; 
+    background-color: #eeeeee; 
+}
+.centered { 
+    display: inline-block; 
+    margin: 0; 
+}
+.chess-board { 
+    border-spacing: 0; 
+    border-collapse: collapse; 
+}
+.chess-board th { 
+    padding: .5em; 
+}
+.chess-board td { 
+    border: 1px solid; 
+    width: 5em; 
+    height: 5em; 
+    text-align: center; 
+    vertical-align: middle; 
+    font-size: 25px;
+}
+
+.chess-board .white { 
+    background: #f0d9b5; 
+}
+.chess-board .black { 
+    background: #b58863; 
+}
+
+.chess-board tr:nth-child(2n) td:nth-child(2n)  {
+    background-color: red;
+}
+
+.chess-board tr:nth-child(2n-1) td:nth-child(2n-1)  {
+    background-color: red;
+}
+
+/* .chess-board tr::after {
+    content: '1';
+} */
+
+
+</style>
+
+
 <body>
     <header class="header">
     </header>
     <main>
         <section class="task">
-            <ul class="task">
+            <ul class="task" id="ulTask">
                 <li class="task__item"><h1 class="item__h1">Задача N 1</h1></li>
-                <li class="task__item"><h2 class="item__h2">Написать функцию, преобразующую число в объект. Передавая на вход число от 0 до 999, мы должны получить на выходе объект, в котором в соответствующих свойствах описаны единицы, десятки и сотни. Например, для числа 245 мы должны получить следующий объект: {‘единицы’: 5, ‘десятки’: 4, ‘сотни’: 2}. Если число превышает 999, необходимо выдать соответствующее сообщение с помощью console.log и вернуть пустой объект.
+                <li class="task__item"><h2 class="item__h2">Создать функцию, генерирующую шахматную доску. При этом можно использовать любые
+                    html-теги по своему желанию. Доска должна быть разлинована соответствующим образом,
+                    т.е.
+                    чередовать черные и белые ячейки. Строки должны нумероваться числами от 1 до 8, столбцы
+                    – латинскими буквами A, B, C, D, E, F, G, H
                 </h2></li> 
                      
                 <li class="task__item"><h3 class="item__h3">
 
                 </h3></li>
-                <input type="button" class="task__button" onclick="task1()" value="task1  (please press ME)">
             </ul>
+            <div id="box">
+                <div id="centered">
+                </div>
+
+            </div>
+            <input type="button" class="task__button" onclick="generateChess()" value="generateChess  (please press ME)">
+
         </section>
 
 
@@ -33,6 +92,51 @@
     <footer class="footer">
 
     </footer>
+    <script>
+
+function generateChess() {
+    var table = document.createElement("table");
+    table.className = "chess-board";
+    var tr, td, th, i, k;
+    var headerHorisont = ["a","b","c","d","e","f","g","h"];
+    var figures = [["&#9820;","&#9822;","&#9821;","&#9818;","&#9819;","&#9821;","&#9822;","&#9820;"],["&#9823;","&#9823;","&#9823;","&#9823;","&#9823;","&#9823;","&#9823;","&#9823;"],["","","","","","","",""],["","","","","","","",""],["","","","","","","",""],["","","","","","","",""],["&#9817;","&#9817;","&#9817;","&#9817;","&#9817;","&#9817;","&#9817;","&#9817;"],["&#9814;","&#9816;","&#9815;","&#9813;","&#9812;","&#9815;","&#9816;","&#9814;"]];
+
+	for(k = 0;k < 8;k++){
+        th = document.createElement("th");
+        th.innerText = headerHorisont[k];
+        th.className = "th";
+        table.append(th);
+
+    }
+
+
+	for(i = 0;i < 8;i++){
+
+        tr = document.createElement("tr");
+        table.append(tr);
+        tr.className = "tr";
+
+
+		for(j=0;j < 8;j++){
+            td = document.createElement("td");
+            td.className = "td";
+			td.innerHTML = figures[i][j];
+            tr.append(td);
+        }
+        tr.append(i+1);
+ 
+
+
+        document.getElementById("centered").append(table);
+        
+	}
+}
+
+generateChess();
+
+
+    </script>
     <script defer src="./js/one.js" ></script>
+
 </body>
 </html>
